@@ -1,0 +1,5 @@
+let ACTIONUSER={
+    ADD_USER:'ADD_USER',
+    NOTIFY_DB:'NOTIFY_DB'
+}
+export default ACTIONUSER
