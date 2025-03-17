@@ -14,10 +14,11 @@ export default function handler(req, res) {
     });
 
     pgClient.query("LISTEN users_update");
+    pgClient.query("LISTEN users_delete");
 
     pgClient.on("notification", (msg) => {
       try {
-        io.emit("users_update", JSON.parse(msg.payload));
+        io.emit(msg.channel, JSON.parse(msg.payload))
       } catch (error) {
         console.log("Error en el proceso de notificación: ", error);
       }

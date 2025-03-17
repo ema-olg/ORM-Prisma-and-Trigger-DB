@@ -31,6 +31,9 @@ const page = () => {
         if (res.ok) {
             setMenssage('Usuario creado exitosamente')
             reset()
+            setTimeout(() => {
+                setMenssage('')
+            }, 3000);
         } else {
             setMenssage('Error al crear el Usuario')
         }
@@ -61,7 +64,7 @@ const page = () => {
 
             </form>
             {menssage && <hr />}
-            {menssage}
+            <p className="mensaje">{menssage}</p>
             {menssage && <hr />}
             <ListaUser state={state} />
         </>
