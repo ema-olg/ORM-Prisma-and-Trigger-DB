@@ -35,6 +35,19 @@ export default async function handler(req, res) {
         .status(500)
         .json({ error: "Error al eliminar usuario", details: error.message });
     }
+  } else if (req.method === "PUT") {
+    try{
+      const {id, email, password}= req.body
+      const updateUser= await prisma.user.update({
+        where: {id},
+        data:{email, password}
+      })
+      res.json(updateUser)
+    }
+    catch(error){
+      console.log(error);
+      res.status(500).json({error:'Error al actualizar usuario'})      
+    }
   } else {
     res.status(405).json({ error: "metodo no permitido" });
   }

@@ -1,6 +1,9 @@
 .errors{
-    color: red;
+    color: #ff0000;
 }
 .mensaje{
     color: #00ff00;
+}
+.menssajeExito{
+    height: 10px;
 }
